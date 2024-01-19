@@ -87,6 +87,7 @@
   --Very-Light-Black: rgba(0, 0, 0, 0.514);
   --Text-Black: rgb(12, 12, 12);
   --Light-Black: rgba(0, 0, 0, 0.731);
+  --Blue-first: #0d6efd;
 }
 
 * {
@@ -109,7 +110,7 @@
   border: none;
   border-bottom: 1px solid var(--Very-Light-Black);
   color: var(--Text-Black);
-  font-weight: 300;
+  font-weight: 500;
   transition: all 0.5s;
 }
 .inputG input:focus {
@@ -150,7 +151,7 @@
   transition: all 0.5s;
 }
 .creat-account:hover {
-  color: #0d6efd;
+  color: var(--Blue-first);
   cursor: pointer;
 }
 img {
@@ -161,6 +162,14 @@ img {
 .fa-eye{
   position: absolute;
   left: 1rem;
+  cursor: pointer;
+}
+.fa-eye:hover{
+  color: var(--Blue-first);
+}
+.fa-eye:active{
+  color: var(--Text-Black);
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 768px) {
