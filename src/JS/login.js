@@ -1,13 +1,6 @@
-let $ = document;
-let inputs = $.querySelectorAll("input");
-let labels = $.querySelectorAll("label");
+const $ = document;
+let regularEye = $.querySelector(".fa-regular");
+let solidEye = $.querySelector(".fa-solid");
 
-// console.log(inputs);
-// inputs.forEach((input) => {
-//   labels.forEach((label) => {
-//     // console.log(Boolean(label));
-//     if (input === "hello") {
-//       label.classList.add("active-label");
-//     }
-//   });
-// });
+
+

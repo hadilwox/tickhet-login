@@ -158,12 +158,13 @@ img {
   height: 27rem;
   padding: 1rem;
 }
-/* .main{
-  marg;
-} */
+.fa-eye{
+  position: absolute;
+  left: 1rem;
+}
 
 @media only screen and (max-width: 768px) {
   img {
-    height: 16.2rem;
+    height: 18.2rem;
   }
 }
