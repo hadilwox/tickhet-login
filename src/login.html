@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +29,9 @@
   <body class="vh-100">
     <div class="wrapper">
       <div class="container main">
-        <div class="row mx-auto shadow">
+          <!----------- login ----------->
+
+        <section class="row login-section mx-auto shadow">
           <!----------- Photo Section ----------->
           <div class="side-image col-md-6 mt-2">
             <div class="image-login">
@@ -53,6 +55,7 @@
                   id="email"
                   required=""
                   autocomplete="off"
+                  dir="rtl"
                 />
                 <label for="email">ایمیل</label>
               </div>
@@ -67,11 +70,66 @@
                 <button class="btn btn-primary">وارد شوید</button>
               </div>
               <div class="text text-center p-2 fw-medium mt-3">
-                آیا حسابی ندارید ؟ <a class="creat-account"> ایجاد حساب </a>
+                آیا حسابی ندارید ؟ <a class="creat-account-link"> ایجاد حساب </a>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+          <!----------- sign ----------->
+        <section class="row sign-section mx-auto shadow">
+          <!----------- Photo Section ----------->
+          <div class="side-image col-md-6 mt-2">
+            <div class="image-login">
+              <!----------- image ----------->
+              <img
+                class="w-100"
+                src="../media/photo/Mesa de trabajo 1.png"
+                alt="عکس لاگین"
+              />
+            </div>
+          </div>
+          <!----------- Form Section ----------->
+          <div class="side-form col-md-6 d-flex justify-content-center my-4">
+            <div class="card-login">
+              <header class="text-center fs-3 fw-bold mb-2">ساخت حساب</header>
+              <!----------- Enter UserName ----------->
+              <div class="inputG username-input text-center pt-1 my-5">
+                <input
+                  type="text"
+                  class="input"
+                  id="username"
+                  required=""
+                  autocomplete="off"
+                />
+                <label for="email">نام کاربری</label>
+              </div>
+              <!----------- Enter Email ----------->
+              <div class="inputG email-input text-center pt-1 my-5">
+                <input
+                  type="text"
+                  class="input"
+                  id="email"
+                  required=""
+                  autocomplete="off"
+                />
+                <label for="email">ایمیل</label>
+              </div>
+              <!----------- Enter Password ----------->
+              <div class="inputG password-input text-center pt-1 my-2">
+                <input type="password" class="input" id="pass" required="" />
+                <i class="fa-regular fa-eye"></i>
+                <label for="pass">رمز ورود</label>
+              </div>
+              <!----------- Button for Click ----------->
+              <div class="login-button d-grid gap-2 text-center pt-1 mt-4">
+                <button class="btn btn-primary">وارد شوید</button>
+              </div>
+              <div class="text text-center p-2 fw-medium mt-3">
+               آیا حساب آماده دارید ؟<a class="login-now-link"> همین الان وارد شوید</a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
     <script src="../src/JS/login.js"></script>

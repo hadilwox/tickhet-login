@@ -97,7 +97,9 @@
 .row {
   max-width: 56.25rem;
   border-radius: 15px;
+  transition: all 0.5s;
 }
+
 .card-login {
   min-width: 20.625rem;
   max-width: 21.875rem;
@@ -135,6 +137,7 @@
 .main {
   display: flex;
   justify-content: center;
+  position: relative;
   align-items: center;
   min-height: 100vh;
 }
@@ -171,6 +174,26 @@ img {
   color: var(--Text-Black);
   font-size: 15px;
 }
+.creat-account-link:hover,.login-now-link:hover{
+  cursor: pointer;
+}
+.login-section.activeRotate{
+  transform: rotateY(180deg);
+}
+.login-section{
+  backface-visibility: hidden;
+}
+.sign-section.activeRotate{
+  transform: rotateY(360deg);
+
+}
+.sign-section{
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: all 0.5s;
+}
+
 
 @media only screen and (max-width: 768px) {
   img {
