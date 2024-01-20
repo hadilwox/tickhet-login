@@ -97,7 +97,7 @@
 .row {
   max-width: 56.25rem;
   border-radius: 15px;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 
 .card-login {
@@ -151,7 +151,7 @@
 .creat-account {
   text-decoration: none;
   color: var(--Text-Black);
-  transition: all 0.5s;
+  transition: all 1;
 }
 .creat-account:hover {
   color: var(--Blue-first);
@@ -191,7 +191,7 @@ img {
   position: absolute;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  transition: all 0.5s;
+  transition: all 1s;
 }
 
 
