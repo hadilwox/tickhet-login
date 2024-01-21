@@ -88,16 +88,21 @@
   --Text-Black: rgb(12, 12, 12);
   --Light-Black: rgba(0, 0, 0, 0.731);
   --Blue-first: #0d6efd;
+  --White-background: #e4e4e4;
 }
 
 * {
   font-family: Vazirmatn;
   box-sizing: border-box;
 }
+.wrapper{
+  background-color: var(--White-background);
+}
 .row {
   max-width: 56.25rem;
   border-radius: 15px;
   transition: all 1s;
+  background-color: #fff;
 }
 
 .card-login {

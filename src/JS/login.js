@@ -67,6 +67,25 @@ function changeToLogin (){
 
 }
 
+function testCorrectUsername (){
+  if (inputUserName.value.trim()){
+    emptyInput();
+    showWelcamMessage();
+  }else{
+    warningMessage.forEach( message => {
+      message.className = "warning-message text-danger";
+      message.innerHTML = "نام کاربری شما نامعتبر است";
+    })
+    setInterval(() => {
+      warningMessage.forEach( message => {
+        message.innerHTML = "";
+      })
+  
+    }, 5000)
+  
+  }
+}
+
 // RegEx Email to correrct
 function testCorrectEmail() {
   let regexEmail =
@@ -74,11 +93,11 @@ function testCorrectEmail() {
   let isEmailLogin = regexEmail.test(inputEmailLogin.value);
   let isEmailSign =  regexEmail.test(inputEmailSign.value);
   if (isEmailLogin || isEmailSign){
-    console.log(true);
-    emptyInput();
-    showWelcamMesage();
+    testCorrectPass ()
+
+
   } else {
-    showWarningMessage();
+    showWarningMessageEmail();
   }
     
 }
@@ -88,8 +107,30 @@ function clickOnBtn (){
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       testCorrectEmail()
+
     })
   })
+}
+
+// Correct Password
+function testCorrectPass (){
+  // for login section
+
+  if (inputPassLogin.value.trim()){
+    emptyInput();
+    showWelcamMessage();
+    return
+  }else if (!inputPassLogin.value.trim()){
+    showWarningMessagePass();
+    return
+  }
+
+  // for sign section
+  if (inputPassSign.value.trim()){
+    testCorrectUsername()
+  }else if (!inputPassSign.value.trim()){
+    showWarningMessagePass();
+  }
 }
 
 // Empty all inputs
@@ -103,7 +144,7 @@ function emptyInput (){
 }
 
 // show Not correct Email message
-function showWarningMessage (){
+function showWarningMessageEmail (){
   warningMessage.forEach( message => {
     message.className = "warning-message text-danger"
     message.innerHTML = "ایمیل شما نامعتبر است";
@@ -117,8 +158,22 @@ function showWarningMessage (){
 
 }
 
+function showWarningMessagePass (){
+  warningMessage.forEach( message => {
+    message.className = "warning-message text-danger";
+    message.innerHTML = "پسورد شما نامعتبر است";
+  })
+  setInterval(() => {
+    warningMessage.forEach( message => {
+      message.innerHTML = "";
+    })
+
+  }, 5000)
+
+}
+
 // show correct Enter
-function showWelcamMesage (){
+function showWelcamMessage (){
   warningMessage.forEach( message => {
     message.className = "warning-message text-success "
     message.innerHTML = "خوشامدید";
