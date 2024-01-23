@@ -18,48 +18,55 @@ let loginNowLink = $.querySelector(".login-now-link")
 
 // Button to Enter Login
 function clickOnBtnLogin (){
-  $.getElementById("btn-login").addEventListener("click", () => {
+  $.getElementById("btn-login").addEventListener("click", (event) => {
+    event.preventDefault()
     testCorrectEmail()
-    console.log("click login");
   })
 }
  
 // Warning Message Login
-let warningMessageLogin = $.getElementById(".warning-message-login")
+let warningMessageLogin = $.getElementById("warning-message-login")
 
 // RegEx Email to correrct
 function testCorrectEmail() {
+
   let regexEmail =
     /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-  let isEmailLogin = regexEmail.test(inputEmailLogin.value);
-  let isEmailSign =  regexEmail.test(inputEmailSign.value);
 
-  correctEmailLogin(isEmailLogin)
-  correctEmailSign(isEmailSign)
+  if (inputEmailLogin.value){
+    let isEmailLogin = regexEmail.test(inputEmailLogin.value);
+    correctEmailLogin(isEmailLogin)
+
+  } else if (!inputEmailLogin.value){
+    showWarningMessageEmailLogin()
+
+  } 
+  
+  if (inputEmailSign.value){
+    let isEmailSign =  regexEmail.test(inputEmailSign.value);
+    correctEmailSign(isEmailSign)
+
+  }else if (!inputEmailSign.value){
+    showWarningMessageEmailSign()
+  }
 }
 
 function correctEmailLogin(isEmailLogin){
-
+  if (isEmailLogin){
+    testCorrectPassLogin()
+  }else {
+    showWarningMessageEmailLogin()
+  }
 }
 
-// Correct Password
-function testCorrectPass (){
-  // for login section
+// Correct Password Login
+function testCorrectPassLogin (){
 
   if (inputPassLogin.value.trim()){
-    emptyInput();
-    showWelcamMessage();
-    return
+    emptyInputLogin();
+    showWelcamMessageLogin();
   }else if (!inputPassLogin.value.trim()){
-    showWarningMessagePass();
-    return
-  }
-
-  // for sign section
-  if (inputPassSign.value.trim()){
-    testCorrectUsername()
-  }else if (!inputPassSign.value.trim()){
-    showWarningMessagePass();
+    showWarningMessagePassLogin();
   }
 }
 
@@ -71,78 +78,111 @@ function emptyInputLogin (){
 
 
 // show Not correct Email message
-function showWarningMessageEmail (){
-  warningMessage.forEach( message => {
-    message.className = "warning-message text-danger"
-    message.innerHTML = "ایمیل شما نامعتبر است";
-  })
+function showWarningMessageEmailLogin (){
+  warningMessageLogin.className = "text-danger";
+  warningMessageLogin.innerHTML = "ایمیل شما نامعتبر است";
   setInterval(() => {
-    warningMessage.forEach( message => {
-      message.innerHTML = "";
-    })
-
-  }, 3000)
+    warningMessageLogin.innerHTML = "";
+  }, 5000)
 
 }
 
-function showWarningMessagePass (){
-  warningMessage.forEach( message => {
-    message.className = "warning-message text-danger";
-    message.innerHTML = "پسورد شما نامعتبر است";
-  })
+function showWarningMessagePassLogin (){
+  warningMessageLogin.className = "text-danger";
+  warningMessageLogin.innerHTML = "پسورد شما نامعتبر است";
   setInterval(() => {
-    warningMessage.forEach( message => {
-      message.innerHTML = "";
-    })
-
+    warningMessageLogin.innerHTML = "";
   }, 5000)
 
 }
 
 // show correct Enter
-function showWelcamMessage (){
-  warningMessage.forEach( message => {
-    message.className = "warning-message text-success "
-    message.innerHTML = "خوشامدید";
-  })
+function showWelcamMessageLogin (){
+  warningMessageLogin.className = "text-success";
+  warningMessageLogin.innerHTML = "خوشامدید";
 }
 
-clickOnBtnLogin ()
-changeToLogin ()
+clickOnBtnSign ();
+clickOnBtnLogin ();
+changeToLogin ();
 clickEyePass();
-changeToSign ()
+changeToSign ();
 
 
 //  ----- code for Sign -----
 
 
-// inputs for sign
+// // inputs for sign
 let inputPassSign = $.getElementById("pass-sign");
 let inputEmailSign = $.getElementById("email-sign");
 let inputUserName = $.getElementById("username");
 
 let signSection = $.querySelector(".sign-section")
 
-let warningMessageSign = $.getElementById(".warning-message-sign")
+let warningMessageSign = $.getElementById("warning-message-sign")
+
+// // Button to Enter Sign
+function clickOnBtnSign (){
+  $.getElementById("btn-sign").addEventListener("click", (event) => {
+    event.preventDefault()
+    testCorrectUsername()
+  })
+}
 
 function testCorrectUsername (){
   if (inputUserName.value.trim()){
-    emptyInput();
-    showWelcamMessage();
+    testCorrectEmail()
   }else{
-    warningMessage.forEach( message => {
-      message.className = "warning-message text-danger";
-      message.innerHTML = "نام کاربری شما نامعتبر است";
-    })
-    setInterval(() => {
-      warningMessage.forEach( message => {
-        message.innerHTML = "";
-      })
+    warningMessageSign.className = "text-danger";
+    warningMessageSign.innerHTML = "نام کاربری شما نامعتبر است";
   
+    setInterval(() => {
+      warningMessageSign.innerHTML = "";
     }, 5000)
   
   }
 }
+
+function correctEmailSign(isEmailSign){
+  if (isEmailSign){
+    testCorrectPassSign()
+  }else {
+    showWarningMessageEmailSign()
+  }
+}
+
+function testCorrectPassSign(){
+  if (inputPassSign.value.trim()){
+    emptyInputSign();
+    showWelcamMessageSign();
+  }else if (!inputPassSign.value.trim()){
+    showWarningMessagePassSign();
+  }
+}
+
+function showWarningMessageEmailSign(){
+  warningMessageSign.className = "text-danger";
+  warningMessageSign.innerHTML = "ایمیل شما نامعتبر است";
+  setInterval(() => {
+    warningMessageSign.innerHTML = "";
+  }, 5000)
+
+}
+
+function showWarningMessagePassSign(){
+  warningMessageSign.className = "text-danger";
+  warningMessageSign.innerHTML = "پسورد شما نامعتبر است";
+  setInterval(() => {
+    warningMessageSign.innerHTML = "";
+  }, 5000)
+}
+
+function showWelcamMessageSign(){
+  warningMessageSign.className = "text-success";
+  warningMessageSign.innerHTML = "خوشامدید";
+}
+
+
 
 function emptyInputSign (){
   inputPassSign.value = "";
@@ -150,9 +190,9 @@ function emptyInputSign (){
   inputUserName.value = "";
 }
 
-function correctEmailSign (isEmailSign){
+// function correctEmailSign (isEmailSign){
 
-}
+// }
 
 
 
@@ -187,7 +227,7 @@ function changeToSign (){
   creatAccountLink.addEventListener("click", () =>{
     loginSection.classList.add("activeRotate")
     signSection.classList.add("activeRotate")
-    
+    emptyInputLogin()
   })
 
 }
@@ -197,7 +237,7 @@ function changeToLogin (){
   loginNowLink.addEventListener("click", () =>{
     loginSection.classList.remove("activeRotate")
     signSection.classList.remove("activeRotate")
-    
+    emptyInputSign()
   })
 
 }
