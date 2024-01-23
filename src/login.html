@@ -30,7 +30,8 @@
   <body class="vh-100">
     <div class="wrapper">
       <div class="container main">
-          <!----------- login ----------->
+
+          <!------------------------------- login ------------------------------->
 
         <section class="row login-section mx-auto shadow">
           <!----------- Photo Section ----------->
@@ -68,11 +69,11 @@
               </div>
               <!----------- Show Message ----------->
               <div class=" text-center pt-1 mt-3">
-                <p class="warning-message text-danger"></p>
+                <p class="text-danger" id="warning-message-login"></p>
               </div>
               <!----------- Button for Click ----------->
               <div class="login-button d-grid gap-2 text-center pt-1 mt-3">
-                <button class="btn btn-primary">وارد شوید</button>
+                <button class="btn btn-primary" id="btn-login">وارد شوید</button>
               </div>
               <div class="text text-center p-2 fw-medium mt-3">
                 آیا حسابی ندارید ؟ <a class="creat-account-link"> ایجاد حساب </a>
@@ -80,7 +81,9 @@
             </div>
           </div>
         </section>
-          <!----------- sign ----------->
+
+          <!------------------------------- sign ------------------------------->
+
         <section class="row sign-section mx-auto shadow">
           <!----------- Photo Section ----------->
           <div class="side-image col-md-6 mt-2">
@@ -123,15 +126,15 @@
               <div class="inputG password-input text-center mt-2 mb-4">
                 <input type="password" class="input" id="pass-sign" required="" />
                 <i class="fa-regular fa-eye"></i>
-                <label for="pass">رمز ورود</label>
+                <label for="pass-sign">رمز ورود</label>
               </div>
               <!----------- Show Message ----------->
               <div class="text-center pt-1 mt-3">
-                <p class="warning-message text-danger"></p>
+                <p class="text-danger" id="warning-message-sign"></p>
               </div>
               <!----------- Button for Click ----------->
               <div class="login-button d-grid gap-2 text-center pt-1 mt-3">
-                <button class="btn btn-primary">وارد شوید</button>
+                <button class="btn btn-primary" id="btn-sign">وارد شوید</button>
               </div>
               <div class="text text-center p-2 fw-medium mt-3">
                آیا حساب آماده دارید ؟<a class="login-now-link"> همین الان وارد شوید</a>
