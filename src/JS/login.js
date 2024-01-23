@@ -19,7 +19,8 @@ let loginNowLink = $.querySelector(".login-now-link")
 // Button to Enter Login
 function clickOnBtnLogin (){
   $.getElementById("btn-login").addEventListener("click", () => {
-
+    testCorrectEmail()
+    console.log("click login");
   })
 }
  
@@ -106,7 +107,7 @@ function showWelcamMessage (){
   })
 }
 
-clickOnBtn ()
+clickOnBtnLogin ()
 changeToLogin ()
 clickEyePass();
 changeToSign ()
