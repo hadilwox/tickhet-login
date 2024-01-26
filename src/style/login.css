@@ -17,7 +17,7 @@
   --Very-Light-Black: rgba(0, 0, 0, 0.514);
   --Text-Black: rgb(12, 12, 12);
   --Light-Black: rgba(0, 0, 0, 0.731);
-  --Blue-first: #0d6efd;
+  --Color-first: #05c19c;
   --White-background: #e4e4e4;
 }
 
@@ -25,17 +25,18 @@
   font-family: Vazirmatn;
   box-sizing: border-box;
 }
-.wrapper {
-  background-color: var(--White-background);
-}
-.wrapper {
-  background-color: var(--White-background);
+body {
+  min-height: 100vh;
+  background: url(../../media/photo/backweb.png) no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .row {
   max-width: 56.25rem;
   border-radius: 15px;
   transition: all 1s;
-  background-color: #fff;
+  background-color: transparent;
+  backdrop-filter: blur(40px);
 }
 
 .card-login {
@@ -52,6 +53,7 @@
   color: var(--Text-Black);
   font-weight: 500;
   transition: all 0.5s;
+  background-color: transparent;
 }
 .inputG input:focus {
   border: none;
@@ -86,13 +88,25 @@
   font-size: 14px;
   color: var(--Very-Light-Black);
 }
-.creat-account {
+.btn {
+  background-color: var(--Color-first) !important;
+  border: none !important;
+  transform: scale(1);
+  transition: all 0.5s !important ;
+}
+.btn:hover {
+  transform: scale(0.9);
+}
+.creat-account-link,
+.login-now-link {
+  font-weight: 700;
   text-decoration: none;
   color: var(--Text-Black);
-  transition: all 1;
+  transition: all 0.5s;
 }
-.creat-account:hover {
-  color: var(--Blue-first);
+.creat-account-link:hover,
+.login-now-link:hover {
+  color: var(--Color-first);
   cursor: pointer;
 }
 img {
@@ -104,13 +118,14 @@ img {
   position: absolute;
   left: 1rem;
   cursor: pointer;
+  transition: all 0.5s;
 }
 .fa-eye:hover {
-  color: var(--Blue-first);
+  color: var(--Color-first);
 }
 .fa-eye:active {
   color: var(--Text-Black);
-  font-size: 15px;
+  font-size: 14px !important;
 }
 .creat-account-link:hover,
 .login-now-link:hover {
