@@ -36,7 +36,8 @@ body {
   border-radius: 15px;
   transition: all 1s;
   background-color: transparent;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(60px);
+  box-shadow: 0px 2px 6px 0px #0000006e;;
 }
 
 .card-login {
