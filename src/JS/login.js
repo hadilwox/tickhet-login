@@ -100,6 +100,7 @@ function showWarningMessagePassLogin (){
 function showWelcamMessageLogin (){
   warningMessageLogin.className = "text-success";
   warningMessageLogin.innerHTML = "خوشامدید";
+  window.location.href = "/src/dashboard.html"
 }
 
 clickOnBtnSign ();
@@ -180,6 +181,7 @@ function showWarningMessagePassSign(){
 function showWelcamMessageSign(){
   warningMessageSign.className = "text-success";
   warningMessageSign.innerHTML = "خوشامدید";
+  window.location.href = "/src/dashboard.html"
 }
 
 
