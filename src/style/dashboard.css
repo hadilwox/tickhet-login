@@ -2,12 +2,14 @@
 @import url(/src/style/rest.css);
 
 :root {
-  --Very-Light-Black: rgba(0, 0, 0, 0.514);
   --Text-Black: rgb(12, 12, 12);
   --Light-Black: rgba(0, 0, 0, 0.731);
   --Color-first: #05c19c;
-  --Blue-secand: #0dd4f7;
+  --Color-first-hover: #068b70;
   --White-background: #e4e4e4;
+  --ticket-send: #887305;
+  --ticket-answer: #008005;
+  --ticket-all: #0a4fd4;
 }
 
 * {
@@ -23,7 +25,7 @@ body {
 main {
   .sidebar {
     background-color: var(--White-background);
-    width: 80px;
+    width: 5rem;
     transition: 0.5s;
     overflow: visible;
     border-radius: 10px 0 0 10px;
@@ -84,7 +86,7 @@ main {
     }
   }
   .sidebar.active {
-    width: 260px;
+    width: 16.25rem;
 
     h1 {
       opacity: 1;
@@ -109,6 +111,75 @@ main {
     }
   }
 }
+.content {
+  width: 100%;
+  transition: all 0.5s;
+  padding-right: 5rem;
+}
+.content.active {
+  padding-right: 16.25rem;
+}
+.dashboard-main {
+  width: 60rem;
+}
+
+.btn-new-ticket {
+  .btn {
+    background-color: var(--Color-first);
+    border: none;
+    transition: all 0.5s;
+  }
+  .btn:hover {
+    background-color: var(--Color-first);
+    transform: scale(0.9);
+  }
+  .btn:active {
+    background-color: var(--Color-first-hover) !important;
+  }
+}
+
+.card-body {
+  min-height: 300px;
+}
+.condition-tocket {
+  width: 14rem;
+  height: 14rem;
+}
+
+.send-t {
+  .text,
+  .number {
+    color: var(--ticket-send);
+  }
+}
+.answer-t {
+  .text,
+  .number {
+    color: var(--ticket-answer);
+  }
+}
+.all-t {
+  .text,
+  .number {
+    color: var(--ticket-all);
+  }
+}
+
+/* @media only screen and (max-width: 1324px) {
+  .main {
+    width: 800px;
+    margin-right: 5% !important;
+    transition: all 0.5s;
+  }
+} */
+/* @media only screen and (max-width: 1148px) {
+  .main {
+    width: 600px;
+    margin-right: 5% !important;
+    transition: all 0.5s;
+  }
+} */
+
 @media only screen and (max-width: 768px) {
   .sidebar {
     width: 50px !important;

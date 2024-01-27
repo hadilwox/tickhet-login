@@ -17,7 +17,7 @@
   --Very-Light-Black: rgba(0, 0, 0, 0.514);
   --Text-Black: rgb(12, 12, 12);
   --Light-Black: rgba(0, 0, 0, 0.731);
-  --Color-first: #05c19c;
+  --Color-first: #0d6efd;
   --White-background: #e4e4e4;
 }
 
@@ -35,7 +35,7 @@ body {
   max-width: 56.25rem;
   border-radius: 15px;
   transition: all 1s;
-  background-color: transparent;
+  background-color: var(--White-background);
   backdrop-filter: blur(60px);
   box-shadow: 0px 2px 6px 0px #0000006e;;
 }
@@ -90,7 +90,6 @@ body {
   color: var(--Very-Light-Black);
 }
 .btn {
-  background-color: var(--Color-first) !important;
   border: none !important;
   transform: scale(1);
   transition: all 0.5s !important ;
@@ -119,7 +118,6 @@ img {
   position: absolute;
   left: 1rem;
   cursor: pointer;
-  transition: all 0.5s;
 }
 .fa-eye:hover {
   color: var(--Color-first);

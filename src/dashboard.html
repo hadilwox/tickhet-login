@@ -53,6 +53,52 @@
           </li>
         </ul>
       </nav>
+      <div
+        class="content d-flex align-items-center justify-content-center vh-100"
+      >
+        <div class="main d-flex flex-column">
+          <div dir="ltr" class="btn-new-ticket mb-3">
+            <button class="btn btn-info">ثبت تیکت جدید</button>
+          </div>
+          <section class="dashboard-main card">
+            <div class="card-header">
+              <h2 class="card-title">وضعیت تیکت ها</h2>
+            </div>
+            <div class="card-body d-flex justify-content-between">
+              <div
+                class="condition-tocket send-t border border-2 border-secondary rounded-2"
+              >
+                <div class="icon">
+                  <img
+                    width="70"
+                    height="70"
+                    src="https://img.icons8.com/ios-filled/100/887305/ticket.png"
+                    alt="ticket"
+                  />
+                </div>
+                <div class="text"><p class="text-center">ارسال شده</p></div>
+                <div class="number text-center"><span>0</span></div>
+              </div>
+              <div
+                class="condition-tocket answer-t border border-2 border-secondary rounded-2"
+              >
+                <div class="icon"></div>
+                <div class="text">
+                  <p class="text-center">پاسخ داده شده</p>
+                </div>
+                <div class="number text-center"><span>0</span></div>
+              </div>
+              <div
+                class="condition-tocket all-t border border-2 border-secondary rounded-2"
+              >
+                <div class="icon"></div>
+                <div class="text"><p class="text-center">مجموع</p></div>
+                <div class="number text-center"><span>0</span></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
     <script src="/src/JS/dashboard.js"></script>
   </body>
