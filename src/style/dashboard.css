@@ -119,18 +119,17 @@ main {
 .content.active {
   padding-right: 16.25rem;
 }
-.dashboard-main {
+.main {
   width: 60rem;
 }
 
 .btn-new-ticket {
   .btn {
-    background-color: var(--Color-first);
+    color: var(--Color-first-hover);
     border: none;
     transition: all 0.5s;
   }
   .btn:hover {
-    background-color: var(--Color-first);
     transform: scale(0.9);
   }
   .btn:active {
@@ -165,20 +164,25 @@ main {
   }
 }
 
-/* @media only screen and (max-width: 1324px) {
-  .main {
-    width: 800px;
-    margin-right: 5% !important;
+@media only screen and (max-width: 1224px) {
+  .content.active .main {
+    width: 50rem !important;
     transition: all 0.5s;
   }
-} */
-/* @media only screen and (max-width: 1148px) {
-  .main {
-    width: 600px;
-    margin-right: 5% !important;
+}
+@media only screen and (max-width: 975px) {
+  .content.active .main {
+    width: 40rem !important;
     transition: all 0.5s;
   }
-} */
+  .condition-tocket {
+    width: 10rem;
+    height: 10rem;
+  }
+  .card-body {
+    min-height: 200px;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .sidebar {
@@ -200,5 +204,21 @@ main {
         font-size: 16px !important;
       }
     }
+  }
+  .content.active .main{
+    width: 20rem;
+  }
+  .main{
+    width: 30rem;
+  }
+  .condition-tocket {
+    width: 13rem;
+    height: 13rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .dashboard-main .card-body{
+    flex-direction: column;
+    align-items: center;
   }
 }
