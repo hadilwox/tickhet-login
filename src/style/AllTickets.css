@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import url(/src/style/rest.css);
+
+:root {
+  --Text-Black: rgb(12, 12, 12);
+  --Light-Black: rgba(0, 0, 0, 0.731);
+  --Color-first: #05c19c;
+  --Color-first-hover: #068b70;
+  --White-background: #e4e4e4;
+  --ticket-send: #887305;
+  --ticket-answer: #008005;
+  --ticket-all: #0a4fd4;
+}
+
+body , *{
+margin: 0;
+padding: 0;
+}
+.card-bg{
+    background-color: var(--White-background) !important;
+    width: 40rem;
+}
+p{
+    margin: 0 !important;
+    padding: 0 0.8rem;
+    border-left: 1px solid black;
+}
+p:nth-of-type(4){
+    border: none;
+}
