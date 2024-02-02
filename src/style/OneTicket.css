@@ -11,16 +11,7 @@
   --ticket-answer: #008005;
   --ticket-all: #0a4fd4;
 }
-
 .card-bg{
     background-color: var(--White-background) !important;
-    width: 40rem;
+    width: 60rem;
 }
-p{
-    margin: 0 !important;
-    padding: 0 1.2rem;
-}
-
-.border-left{ border-left: 1px solid black ;}
-.border-right{ border-right: 1px solid black;}
-.list-name p{ padding:0 0.8rem ;}
