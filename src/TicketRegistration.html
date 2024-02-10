@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="/src/style/OneTicket.css" />
 
-
     <link
       rel="stylesheet"
       href="/node_modules/bootstrap/dist/css/bootstrap.rtl.css"
@@ -35,20 +34,23 @@
         </div>
         <!-- Menu  -->
         <ul class="list-item navbar-nav mt-4">
-          <li class="nav-item active">
-            <a class="nav-link text-black my-1" href="#">
+          <li class="nav-item">
+            <a class="nav-link text-black my-1" href="/src/dashboard.html">
               <i class="fa-solid fa-layer-group fs-5"></i>
               <span class="fs-5 fw-medium" style="--i: 1">داشبورد</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black my-1" href="#">
+            <a class="nav-link text-black my-1" href="/src/seeAllTickets.html">
               <i class="fa-solid fa-ticket-simple fs-5"></i>
               <span class="fs-5 fw-medium" style="--i: 2">مشهاده تیکت ها</span>
             </a>
           </li>
-          <li class="nav-item for-new-ticket">
-            <a class="nav-link text-black my-1" href="#">
+          <li class="nav-item for-new-ticket active">
+            <a
+              class="nav-link text-black my-1"
+              href="/src/TicketRegistration.html"
+            >
               <i class="fa-solid fa-plus"></i>
               <i class="fa-solid fa-ticket-simple fs-5"></i>
 
@@ -64,26 +66,32 @@
           <!-- start here , delete the content of section and code ... -->
           <!-- got it  -->
           <section class="card card-bg">
-
             <div class="card-header">
               <h2 class="p-3">ثبت تیکت</h2>
 
-              <div class="card-body d-flex flex-column justify-content-start align-items-start ">
-                <h4 class="py-2">عنوان تیکت</h4>
-                <textarea name="topic" id="topic" cols="30" rows="2" class="container text-secondary rounded-1 shadow-sm p-1">عنوان تیکت را وارد کنید</textarea>
-                <h4 class="pt-4">محتوای تیکت</h4>
-                <textarea name="topic" id="topic" cols="70" rows="10" class="container text-secondary rounded-1 shadow-sm p-1">محتوای تیکت را وارد کنید</textarea>
+              <div
+                class="card-body d-flex flex-column justify-content-start align-items-start"
+              >
+                <h4 class="py-2 fs-4">عنوان تیکت</h4>
+                <input
+                  type="text"
+                  name="topic"
+                  id="topic"
+                  class="w-100 text-secondary rounded-1 shadow-sm border-1 p-1"
+                  placeholder="عنوان تیکت را وارد کنید"
+                />
+
+                <h4 class="pt-4 fs-4">محتوای تیکت</h4>
+                <textarea
+                  name="topic"
+                  id="topic"
+                  rows="10"
+                  class="w-100 text-secondary rounded-1 shadow-sm p-1"
+                  placeholder="محتوای تیکت را وارد کنید"
+                ></textarea>
                 <button class="btn btn-success mt-2">ثبت تیکت</button>
-              
-
-              
-
-             
-                
               </div>
             </div>
-            
-            
           </section>
         </div>
       </div>
