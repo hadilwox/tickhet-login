@@ -164,12 +164,6 @@ main {
   }
 }
 
-@media only screen and (max-width: 1224px) {
-  .content.active .main {
-    width: 50rem !important;
-    transition: all 0.5s;
-  }
-}
 @media only screen and (max-width: 975px) {
   .content.active .main {
     width: 40rem !important;
@@ -185,39 +179,13 @@ main {
 }
 
 @media only screen and (max-width: 768px) {
-  .sidebar {
-    width: 50px !important;
-    .nav-item {
-      margin: 0.25rem !important;
-    }
-    .nav-link {
-      padding: 5px 1px 4px 1px !important ;
-    }
-  }
-  .sidebar.active {
-    width: 200px !important;
-    h1 {
-      font-size: 18px !important;
-    }
-    .list-item {
-      span {
-        font-size: 16px !important;
-      }
-    }
-  }
-  .content.active .main{
-    width: 20rem;
-  }
-  .main{
-    width: 30rem;
-  }
   .condition-tocket {
     width: 13rem;
     height: 13rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
-  .dashboard-main .card-body{
+  .dashboard-main .card-body {
     flex-direction: column;
     align-items: center;
   }

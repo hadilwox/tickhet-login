@@ -32,7 +32,40 @@ p {
 }
 
 .table {
+  th {
+    text-align: center !important;
+  }
+
   td {
     cursor: pointer;
+    text-align: center !important;
   }
+}
+.main {
+  width: 60rem;
+}
+@media only screen and (max-width: 1224px) {
+  .content.active .main {
+    width: 40rem !important;
+    transition: all 0.5s;
+  }
+  .main {
+    width: 50rem !important;
+    transition: all 0.5s;
+  }
+}
+@media only screen and (max-width: 885px) {
+  .content.active .main {
+    width: 30rem !important;
+    transition: all 0.5s;
+    overflow: hidden;
+
+  }
+  .main {
+    width: 30rem !important;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+
+
 }
