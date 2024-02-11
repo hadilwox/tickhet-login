@@ -55,17 +55,14 @@ p {
   }
 }
 @media only screen and (max-width: 885px) {
+
   .content.active .main {
+    margin-right: 2rem;
     width: 30rem !important;
     transition: all 0.5s;
-    overflow: hidden;
-
   }
   .main {
     width: 30rem !important;
     transition: all 0.5s;
-    overflow: hidden;
   }
-
-
 }

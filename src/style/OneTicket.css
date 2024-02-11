@@ -11,7 +11,25 @@
   --ticket-answer: #008005;
   --ticket-all: #0a4fd4;
 }
-.card-bg{
-    background-color: var(--White-background) !important;
-    width: 60rem;
+
+@media only screen and (max-width: 1224px) {
+  .content.active .main {
+    width: 40rem !important;
+    transition: all 0.5s;
+  }
+  .main {
+    width: 50rem !important;
+    transition: all 0.5s;
+  }
+}
+@media only screen and (max-width: 885px) {
+  .content.active .main {
+    margin-right: 3rem;
+    width: 30rem !important;
+    transition: all 0.5s;
+  }
+  .main {
+    width: 30rem !important;
+    transition: all 0.5s;
+  }
 }

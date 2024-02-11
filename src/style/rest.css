@@ -112,3 +112,6 @@
     width: 30rem;
   }
 }
+.content {
+  overflow: hidden;
+}
