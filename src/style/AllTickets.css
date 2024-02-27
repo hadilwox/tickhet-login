@@ -35,12 +35,14 @@ p {
   }
 
   td {
-    cursor: pointer;
     text-align: center !important;
   }
 }
 .main {
   width: 60rem;
+}
+.clickOneTicket {
+  background-color: var(--Color-first) !important;
 }
 @media only screen and (max-width: 1224px) {
   .content.active .main {

@@ -5,8 +5,13 @@ if (isset($_COOKIE['email'])) {
   $emailUser = $_COOKIE['email'];
   $passwordUser = $_COOKIE['password'];
 
+  $countAll = 0;
+  $countSend = 0;
+  $countAnswer = 0;
+
   $correctUser = $db->prepare("SELECT * FROM subscribers WHERE email = :email AND password = :password");
   $correctUser->execute(['email' => $emailUser, 'password' => $passwordUser]);
+  // $correctUser = $db->query("SELECT * FROM subscribers WHERE email = $emailUser AND password = $passwordUser ");
 
   if ($correctUser->rowCount() == 1) {
     if (isset($_GET['ticketID'])) {
@@ -60,17 +65,9 @@ if (isset($_COOKIE['email'])) {
                 <?= $dataticket['content'] ?>
               </p>
               <h4 class="py-2">پاسخ تیکت</h4>
-              <p>
-
-                <?php
-                if ($dataticket['status'] == 1) {
-                  echo $dataticket['answer'];
-                } else {
-                  echo "لطفا تا پاسخ صبر کنید ...";
-                }
-
-                ?>
-              </p>
+              <textarea name="topic" id="topic" cols="70" rows="10"
+                class="container text-secondary rounded-1 shadow-sm p-1" placeholder="پاسخ تیکت"></textarea>
+              <button class="btn btn-success mt-2">ثبت پاسخ</button>
             <?php endif ?>
 
 

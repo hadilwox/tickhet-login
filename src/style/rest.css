@@ -116,3 +116,6 @@
 .content {
   overflow: hidden;
 }
+p {
+  line-height: 2rem !important;
+}

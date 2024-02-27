@@ -1,11 +1,27 @@
 <?php
-session_start();
+
+$invalidInputEmailLog = "";
+$invalidInputPassLog = "";
+$invalidInputPassLog = "";
+$invalidInputEmailSign = "";
+$invalidInputPassSign = "";
+$invalidInputUserSign = "";
 
 include "./include/db.php";
+
+$emailCookie = "email";
+$passwordCookie = "password";
 // For Login
 if (isset($_POST['login'])) {
   $emailLog = $_POST['emailLogin'];
+
   $passLog = $_POST['passLogin'];
+
+
+
+
+  // $_COOKIE['email'];
+  // $_COOKIE['password'];
 
   if (empty(trim($emailLog))) {
     $invalidInputEmailLog = "ایمیل ضروری است";
@@ -21,17 +37,17 @@ if (isset($_POST['login'])) {
       $user->execute(["email" => $emailLog, "password" => $passLog]);
 
       if ($user->rowCount() == 1) {
-        $_SESSION['email'] = $emailLog;
-        header("Location:/dashboard.php");
+        setcookie($emailCookie, $emailLog, time() + (86400 * 30) . '/');
+        setcookie($passwordCookie, $passLog, time() + (86400 * 30) . '/');
+
+        header("Location:dashboard.php");
         exit();
       }
-      header("Location:login.php?err_msg=کابری با این اطلاعات یافت نشد. ثبت نام کنید");
+      header("Location:login.php?err_msg=رمز ورود یا ایمیل صحیح نمیباشد");
       exit();
     }
   }
 }
-
-
 
 // For Sign
 if (isset($_POST['sign'])) {
@@ -47,25 +63,30 @@ if (isset($_POST['sign'])) {
     $invalidInputPassSign = "رمز عبور ضروری است";
   }
   if (empty(trim($usernameSign))) {
-    $invalidInputPassSign = "نام کاربری ضروری است";
+    $invalidInputUserSign = "نام کاربری ضروری است";
   }
 
   if (!empty(trim($emailSign)) && !empty(trim($passSign)) && !empty(trim($usernameSign))) {
     if (!filter_var($emailSign, FILTER_VALIDATE_EMAIL)) {
       $invalidInputEmailLog = "ایمیل شما صحیح نیست";
     } else {
-      $userEmail = $db->prepare("SELECT * FROM subscribers WHERE email = :email AND password = :password");
+      $userEmail = $db->prepare("SELECT * FROM subscribers WHERE email = :email OR password = :password");
       $userEmail->execute(["email" => $emailSign, "password" => $passSign]);
 
       if ($userEmail->rowCount() == 1) {
-        $invalidInputEmailSign = "این ایمیل قبلا ثبت شده است";
+        header("Location:login.php?err_msg=این ایمیل قبلا ثبت شده!");
+      } elseif ($userEmail->rowCount() == 0) {
 
-        $_SESSION['email'] = $emailSign;
-        header("Location:/dashboard.php");
+        $newUser = $db->prepare("INSERT INTO subscribers SET username = :username, email = :email, password = :password, role = 'user'");
+        $newUser->execute(['email' => $emailSign, 'password' => $passSign, 'username' => $usernameSign]);
+
+        setcookie($emailCookie, $emailSign, time() + (86400 * 30) . '/');
+        setcookie($passwordCookie, $passSign, time() + (86400 * 30) . '/');
+        setcookie($usernameCookie, $usernameSign, time() + (86400 * 30) . '/');
+
+        header("Location:dashboard.php");
         exit();
       }
-      header("Location:login.php?err_msg=کابری با این اطلاعات یافت نشد. ثبت نام کنید");
-      exit();
     }
   }
 }
@@ -113,25 +134,30 @@ if (isset($_POST['sign'])) {
             <!----------- Enter Email ----------->
             <form method="POST">
               <div class="inputG email-input text-center pt-1 my-5">
-                <input type="email" name="emailLogin" class="input" id="email-login" required="" autocomplete="on"
-                  dir="rtl" autofocus="autofocus" />
+                <input type="email" name="emailLogin" class="input" id="email-login" autocomplete="on" dir="rtl"
+                  autofocus="autofocus" />
                 <label for="email">ایمیل</label>
+                <p class="text-danger mt-3" id="msgEmailLog"></p>
               </div>
+
               <!----------- Enter Password ----------->
               <div class="inputG password-input text-center pt-1 mt-2 mb-4">
-                <input type="password" name="passLogin" class="input" id="pass-login" required="" autocomplete="on" />
+                <input type="password" name="passLogin" class="input" id="pass-login" autocomplete="on" />
                 <i class=" fa-regular fa-eye"></i>
                 <label for="pass">رمز ورود</label>
+                <p class="text-danger" id="msgPassLog"></p>
               </div>
-              <!----------- Show Message ----------->
-              <div class="text-center pt-1 mt-3">
-                <p class="text-danger" id="warning-message-login"></p>
-              </div>
+
               <!----------- Button for Click ----------->
               <div class="login-button d-grid gap-2 text-center pt-1 mt-3">
                 <button name="login" class="btn btn-primary" id="btn-login" type="submit">
                   وارد شوید
                 </button>
+              </div>
+              <!----------- Show Message ----------->
+              <div class="text-center pt-1 mt-3">
+                <p class="text-danger mt-3 msgWarning">
+                </p>
               </div>
             </form>
             <div class="text text-center p-2 fw-medium mt-3">
@@ -161,17 +187,20 @@ if (isset($_POST['sign'])) {
               <div class="inputG username-input text-center pt-1 my-5">
                 <input type="text" name="usernameSign" class="input" id="username" required="" autocomplete="off" />
                 <label for="email">نام کاربری</label>
+                <p class="text-danger" id="msgUserSign"></p>
               </div>
               <!----------- Enter Email ----------->
               <div class="inputG email-input text-center pt-1 my-5">
                 <input type="email" name="emailSign" class="input" id="email-sign" required="" autocomplete="off" />
                 <label for="email">ایمیل</label>
+                <p class="text-danger" id="msgEmailSign"></p>
               </div>
               <!----------- Enter Password ----------->
               <div class="inputG password-input text-center mt-2 mb-4">
                 <input type="password" name="passSign" class="input" id="pass-sign" required="" />
                 <i class="fa-regular fa-eye"></i>
                 <label for="pass-sign">رمز ورود</label>
+                <p class="text-danger" id="msgPassSign"></p>
               </div>
               <!----------- Show Message ----------->
               <div class="text-center pt-1 mt-3">
@@ -180,6 +209,10 @@ if (isset($_POST['sign'])) {
               <!----------- Button for Click ----------->
               <div class="login-button d-grid gap-2 text-center pt-1 mt-3">
                 <button class="btn btn-primary" name="sign" id="btn-sign" type="submit">وارد شوید</button>
+              </div>
+              <div class="text-center pt-1 mt-3">
+                <p class="text-danger mt-3 msgWarning">
+                </p>
               </div>
             </form>
             <div class="text text-center p-2 fw-medium mt-3">
@@ -192,6 +225,45 @@ if (isset($_POST['sign'])) {
     </div>
   </div>
 </body>
+<script>
+  const $ = document;
+
+  const msgEmailLog = $.getElementById("msgEmailLog");
+  const msgPassLog = $.getElementById("msgPassLog");
+
+  const msgUsernameSign = $.getAnimations("msgUserSign")
+  const msgEmailSign = $.getAnimations("msgEmailSign")
+  const msgPassSign = $.getAnimations("msgPassSign")
+
+  const msgWarning = $.querySelectorAll(".msgWarning");
+
+  msgEmailLog.innerHTML = '<?php echo $invalidInputEmailLog ?>';
+  msgPassLog.innerHTML = '<?php echo $invalidInputPassLog ?>';
+
+  msgUsernameSign.innerHTML = '<?php echo $invalidInputUserSign ?>';
+  msgEmailSign.innerHTML = '<?php echo $invalidInputEmailSign ?>';
+  msgPassSign.innerHTML = '<?php echo $invalidInputPassSign ?>';
+
+  <?php if (isset($_GET['err_msg'])): ?>
+    msgWarning.forEach(msg => {
+      msg.innerHTML = '<?php echo $_GET['err_msg'] ?>'
+    });
+<?php endif ?>
+
+    setInterval(() => {
+      msgEmailLog.innerHTML = "";
+      msgPassLog.innerHTML = "";
+
+      msgUsernameSign.innerHTML = "";
+      msgEmailSign.innerHTML = "";
+      msgPassSign.innerHTML = "";
+
+      msgWarning.forEach(msg => {
+        msg.innerHTML = "";
+      });
+    }, 5000)
+
+</script>
 <script src="JS/login.js"></script>
 
 </html>

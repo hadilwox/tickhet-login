@@ -18,7 +18,8 @@ $pageName = substr($allPageName, 19);
         <span class="fs-5 fw-medium" style="--i: 1">داشبورد</span>
       </a>
     </li>
-    <li class="nav-item  <?php if ($pageName == "seeAllTickets.php") { ?> active <?php } ?>">
+    <li
+      class="nav-item  <?php if ($pageName == "seeAllTickets.php" || $pageName == "seeOneTicket.php") { ?> active <?php } ?>">
       <a class="nav-link text-black my-1" href="../src/seeAllTickets.php">
         <i class="fa-solid fa-ticket-simple fs-5"></i>
         <span class="fs-5 fw-medium" style="--i: 2">مشهاده تیکت ها</span>
