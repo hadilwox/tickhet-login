@@ -105,11 +105,12 @@
       }
     }
   }
-  .content.active .main{
+  .content.active .main {
     width: 20rem;
   }
-  .main{
+  .main {
     width: 30rem;
+    background-color: yellowgreen;
   }
 }
 .content {

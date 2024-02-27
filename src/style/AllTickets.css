@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import url(/src/style/rest.css);
-
 :root {
   --Text-Black: rgb(12, 12, 12);
   --Light-Black: rgba(0, 0, 0, 0.731);
@@ -55,7 +53,6 @@ p {
   }
 }
 @media only screen and (max-width: 885px) {
-
   .content.active .main {
     margin-right: 2rem;
     width: 30rem !important;
