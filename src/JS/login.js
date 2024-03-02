@@ -1,4 +1,3 @@
-
 let regularEye = $.querySelectorAll(".fa-regular");
 
 // inputs for login
@@ -38,7 +37,6 @@ function emptyInputSign() {
 function clickEyePass() {
   regularEye.forEach((eyeBtn) => {
     eyeBtn.addEventListener("click", () => {
-      console.log("click");
       // for login page
       if (inputPassLogin.type == "password") {
         inputPassLogin.type = "text";

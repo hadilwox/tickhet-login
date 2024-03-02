@@ -1,6 +1,5 @@
 <?php
 include "./include/db.php";
-$msgSuccessful = "";
 
 if (isset($_COOKIE['email'])) {
   $emailUser = $_COOKIE['email'];
@@ -68,13 +67,25 @@ if (isset($_COOKIE['email'])) {
             </form>
           </div>
           <p class="text-center text-success success-msg">
-            <?= $msgSuccessful ?>
+
           </p>
         </section>
       </div>
     </div>
   </main>
   <script src="../src/JS/dashboard.js"></script>
+  <script>
+    const successMsg = document.querySelector(".success-msg");
+
+    <?php if (isset($_POST['sendTicket'])): ?>
+      successMsg.innerHTML = " <?= $msgSuccessful ?>";
+      setInterval(() => {
+        successMsg.innerHTML = "";
+      }, 5000)
+    <?php endif ?>
+
+
+  </script>
 </body>
 
 </html>

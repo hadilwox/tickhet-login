@@ -2,7 +2,6 @@
 
 $invalidInputEmailLog = "";
 $invalidInputPassLog = "";
-$invalidInputPassLog = "";
 $invalidInputEmailSign = "";
 $invalidInputPassSign = "";
 $invalidInputUserSign = "";
@@ -16,12 +15,6 @@ if (isset($_POST['login'])) {
   $emailLog = $_POST['emailLogin'];
 
   $passLog = $_POST['passLogin'];
-
-
-
-
-  // $_COOKIE['email'];
-  // $_COOKIE['password'];
 
   if (empty(trim($emailLog))) {
     $invalidInputEmailLog = "ایمیل ضروری است";
@@ -80,9 +73,9 @@ if (isset($_POST['sign'])) {
         $newUser = $db->prepare("INSERT INTO subscribers SET username = :username, email = :email, password = :password, role = 'user'");
         $newUser->execute(['email' => $emailSign, 'password' => $passSign, 'username' => $usernameSign]);
 
-        setcookie($emailCookie, $emailSign, time() + (86400 * 30) . '/');
-        setcookie($passwordCookie, $passSign, time() + (86400 * 30) . '/');
-        setcookie($usernameCookie, $usernameSign, time() + (86400 * 30) . '/');
+        setcookie($emailCookie, $emailSign, time() + (86400 * 30), '/');
+        setcookie($passwordCookie, $passSign, time() + (86400 * 30), '/');
+        setcookie($usernameCookie, $usernameSign, time() + (86400 * 30), '/');
 
         header("Location:dashboard.php");
         exit();
@@ -114,7 +107,7 @@ if (isset($_POST['sign'])) {
 </head>
 <!----------- body ----------->
 
-<body class="vh-100">
+<body>
   <div class="wrapper">
     <div class="container main">
       <!------------------------------- login ------------------------------->
@@ -134,7 +127,7 @@ if (isset($_POST['sign'])) {
             <!----------- Enter Email ----------->
             <form method="POST">
               <div class="inputG email-input text-center pt-1 my-5">
-                <input type="email" name="emailLogin" class="input" id="email-login" autocomplete="on" dir="rtl"
+                <input type="text" name="emailLogin" class="input" id="email-login" autocomplete="on" dir="rtl"
                   autofocus="autofocus" />
                 <label for="email">ایمیل</label>
                 <p class="text-danger mt-3" id="msgEmailLog"></p>
@@ -185,19 +178,22 @@ if (isset($_POST['sign'])) {
             <!----------- Enter UserName ----------->
             <form method="POST">
               <div class="inputG username-input text-center pt-1 my-5">
-                <input type="text" name="usernameSign" class="input" id="username" required="" autocomplete="off" />
+                <input type="text" name="usernameSign" class="input" id="username" required="" autocomplete="on"
+                  readonly onfocus="this.removeAttribute('readonly');" />
                 <label for="email">نام کاربری</label>
                 <p class="text-danger" id="msgUserSign"></p>
               </div>
               <!----------- Enter Email ----------->
               <div class="inputG email-input text-center pt-1 my-5">
-                <input type="email" name="emailSign" class="input" id="email-sign" required="" autocomplete="off" />
+                <input type="text" name="emailSign" class="input" id="email-sign" required="" autocomplete="on" readonly
+                  onfocus="this.removeAttribute('readonly');" />
                 <label for="email">ایمیل</label>
                 <p class="text-danger" id="msgEmailSign"></p>
               </div>
               <!----------- Enter Password ----------->
               <div class="inputG password-input text-center mt-2 mb-4">
-                <input type="password" name="passSign" class="input" id="pass-sign" required="" />
+                <input type="password" name="passSign" class="input" id="pass-sign" autocomplete="on" required=""
+                  readonly onfocus="this.removeAttribute('readonly');" />
                 <i class="fa-regular fa-eye"></i>
                 <label for="pass-sign">رمز ورود</label>
                 <p class="text-danger" id="msgPassSign"></p>

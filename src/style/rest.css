@@ -108,10 +108,7 @@
   .content.active .main {
     width: 20rem;
   }
-  .main {
-    width: 30rem;
-    background-color: yellowgreen;
-  }
+
 }
 .content {
   overflow: hidden;

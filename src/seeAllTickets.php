@@ -45,7 +45,7 @@ if (isset($_COOKIE['email'])) {
     // Sidebar in web
     include "./include/layout/sidebar.php"
       ?>
-    <div class="content d-flex align-items-center justify-content-center vh-100">
+    <div class="content d-flex align-items-center justify-content-center">
       <div class="d-flex flex-column">
         <!-- start here , delete the content of section and code ... -->
         <!-- got it  -->

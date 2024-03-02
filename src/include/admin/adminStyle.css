@@ -1,0 +1,44 @@
+:root {
+  --Color-first: #05c19c;
+  --White-background: #e4e4e4;
+}
+
+body {
+  min-height: 100vh;
+  background: url(../../../media/photo/bg-ticket-admin.png) no-repeat !important;
+  background-size: cover;
+  background-position: center;
+
+  .sidebar {
+    background-color: transparent;
+    backdrop-filter: blur(60px);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 5rem;
+    transition: 0.5s;
+    overflow: visible;
+    border-radius: 10px 0 0 10px;
+
+    li.active,
+    li:hover {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+}
+body::-webkit-scrollbar {
+  width: 12px !important; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(
+    --White-background
+  ) !important; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(
+    --Color-first
+  ) !important; /* color of the scroll thumb */
+  border-radius: 20px !important; /* roundness of the scroll thumb */
+  border: 3px solid var(--White-background) !important; /* creates padding around scroll thumb */
+}

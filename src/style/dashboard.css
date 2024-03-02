@@ -178,11 +178,20 @@ main {
 
 @media only screen and (max-width: 768px) {
   .condition-tocket {
-    width: 13rem;
-    height: 13rem;
+    width: 10rem;
+    height: 10rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
+  .dashboard-main h2,
+  .dashboard-main p {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+  .dashboard-main .card-header p {
+    margin-top: 0.5rem !important;
+  }
+
   .dashboard-main .card-body {
     flex-direction: column;
     align-items: center;

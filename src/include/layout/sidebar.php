@@ -22,7 +22,7 @@ $pageName = substr($allPageName, 19);
       class="nav-item  <?php if ($pageName == "seeAllTickets.php" || $pageName == "seeOneTicket.php") { ?> active <?php } ?>">
       <a class="nav-link text-black my-1" href="../src/seeAllTickets.php">
         <i class="fa-solid fa-ticket-simple fs-5"></i>
-        <span class="fs-5 fw-medium" style="--i: 2">مشهاده تیکت ها</span>
+        <span class="fs-5 fw-medium" style="--i: 2">مشاهده تیکت ها</span>
       </a>
     </li>
     <li class="nav-item for-new-ticket  <?php if ($pageName == "TicketRegistration.php") { ?> active <?php } ?>">
@@ -31,6 +31,12 @@ $pageName = substr($allPageName, 19);
         <i class="fa-solid fa-ticket-simple fs-5"></i>
 
         <span class="fs-5 fw-medium" style="--i: 3">ثبت تیکت جدید</span>
+      </a>
+    </li>
+    <li class="nav-item for-new-ticket ">
+      <a class="nav-link text-black my-1" href="include/layout/exitUser.php">
+        <i class="fa-solid fa-right-from-bracket fs-5"></i>
+        <span class="fs-5 fw-medium" style="--i: 4">خروج</span>
       </a>
     </li>
   </ul>

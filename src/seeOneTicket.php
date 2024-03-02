@@ -33,7 +33,10 @@ if (isset($_COOKIE['email'])) {
 
 <?php include "./include/layout/header.php" ?>
 <link rel="stylesheet" href="../src/style/OneTicket.css" />
-<title>تیکت ...</title>
+<title>تیکت
+  "
+  <?= $dataticket['title'] ?>"
+</title>
 </head>
 
 <body>
